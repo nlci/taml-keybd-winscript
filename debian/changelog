@@ -1,0 +1,11 @@
+kmfl-keyboard-tamil (1.01.1) unstable; urgency=low
+
+  * Refactored packaging.
+
+ -- Indic Dev <indic_dev@sil.org>  Wed, 13 Mar 2013 08:37:38 -0600
+
+kmfl-keyboard-tamil (1.01) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Indic Dev <indic_dev@sil.org>  Tue, 26 Feb 2013 16:58:56 -0700

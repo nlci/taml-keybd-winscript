@@ -1,0 +1,115 @@
+VERSION 5.0 C  This keyboard will work with Keyman 5.0
+NAME "WINSTAMU1.01"
+BITMAP "taml.bmp"
+HOTKEY "^+T" 	c CTRL+SHIFT+t
+message "Tamil Phonetic (Easy) Keyboard"
+CAPS ALWAYS OFF
+begin UNICODE > USE(MAIN)
+
+group(Main) using keys
+
+store(vowel)    'a'     'A'     'i'     'I'     'u'     'U'  \
+                'e'     'E'     'Y'     'o'     'O'     'V'
+store(vowelU) U+0B85  U+0B86  U+0B87  U+0B88  U+0B89  U+0B8A \
+              U+0B8E  U+0B8F  U+0B90  U+0B92  U+0B93  U+0B94
+store(Conson)   'k' 'K' 'g'  'W' \
+                'c' 'C' 'w' \
+                't' 'T' 'd' 'D' 'N' \
+                'q' 'Q' ']' '}' 'n' \
+                'p'  'P' 'b' 'B' 'm' \
+                 'y' 'r' 'l' 'L' 'v'
+Store(ConsonU)  U+0B95 U+0B95 U+0B95 U+0B99 \
+                U+0B9A U+0B9A U+0B9E \
+                U+0B9F U+0B9F U+0B9F U+0B9F U+0BA3 \
+                U+0BA4 U+0BA4 U+0BA4 U+0BA4 U+0BA8  \
+                U+0BAA U+0BAA U+0BAA U+0BAA U+0BAE \
+                U+0BAF U+0BB0 U+0BB2 U+0BB3 U+0BB5
+Store(special)    'j' 'J' 'Z' 'z' 's' 'h'
+store(specialU) U+0B9C U+0B9C  U+0BB7 U+0BB7 U+0BB8 U+0BB9
+c store(wsconson)   'n'    'L'     'r'
+store(wsconsonU) U+0BA9 U+0BB4 U+0BB1
+store(others)  'R' 'R'  'X'
+
+ + "=" > deadkey(1)    c for other keys in Tamil
+ + 'x' > deadkey(2)
+
+ dk(1)+'n' > u+0ba9         c tamil special na
+ dk(1)+'L' > u+0bb4         c tamil special la
+ dk(1)+'l' > u+0bb4         c tamil special la (another way of typing)
+ dk(1)+'r' > u+0bb1         c tamil special ra
+ c instead of using dead key
+ c we may type directly useing 'G ,D,R'
+ c this only for Kurumba kannada And office
+ c future we will not update - vijaya_kumar@kastanet.org
++'D' > u+0ba9         c tamil special na
++'f' > u+0bb4         c tamil special la
++'F' > u+0bb4         c tamil special la
++'R' > u+0bb1         c tamil special ra
+
+ + 'H' >  U+0B83            c tamil aka
+ + 'S' > U+0BA9 U+0BCD      c  tamil in
+ + 'M' > u+0BAE U+0BCD      c  tamil mm
+
++ any(vowel) > index(vowelU,1)       c vowels
++ any(Conson) > index(consonU,1)     c consonants
++ any(special) > index(specialU,1)   c specials letters
++ any(others) > beep                 c other unassigned letters it will beep
+
+c Double consonants
+
+ any(consonU) + 'A' > context U+0BBE
+ any(consonU) + 'i' > context U+0BBF
+ any(consonU) + 'I' > context U+0BC0
+ any(consonU) + 'u' > context U+0BC1
+ any(consonU) + 'U' > context U+0BC2
+ any(consonU) + 'e' > context U+0BC6
+ any(consonU) + 'E' > context U+0BC7
+ any(consonU) + 'Y' > context U+0BC8
+ any(consonU) + 'o' > context U+0BCA
+ any(consonU) + 'O' > context U+0BCB
+ any(consonU) + 'V' > context U+0BCC
+ any(consonU) + 'x' > context U+0BCD
+
+ c special consonants
+ any(wsconsonU) + 'A' > context U+0BBE
+ any(wsconsonU) + 'i' > context U+0BBF
+ any(wsconsonU) + 'I' > context U+0BC0
+ any(wsconsonU) + 'u' > context U+0BC1
+ any(wsconsonU) + 'U' > context U+0BC2
+ any(wsconsonU) + 'e' > context U+0BC6
+ any(wsconsonU) + 'E' > context U+0BC7
+ any(wsconsonU) + 'Y' > context U+0BC8
+ any(wsconsonU) + 'o' > context U+0BCA
+ any(wsconsonU) + 'O' > context U+0BCB
+ any(wsconsonU) + 'V' > context U+0BCC
+ any(wsconsonU) + 'x' > context U+0BCD
+ any(wsconsonU) + 'x' > context U+0bcd
+
+ c special letters
+ any(specialU) + 'A' > context U+0BBE
+ any(specialU) + 'i' > context U+0BBF
+ any(specialU) + 'I' > context U+0BC0
+ any(specialU) + 'u' > context U+0BC1
+ any(specialU) + 'U' > context U+0BC2
+ any(specialU) + 'e' > context U+0BC6
+ any(specialU) + 'E' > context U+0BC7
+ any(specialU) + 'Y' > context U+0BC8
+ any(specialU) + 'o' > context U+0BCA
+ any(specialU) + 'O' > context U+0BCB
+ any(specialU) + 'V' > context U+0BCC
+ any(specialU) + 'x' > context U+0BCD
+ any(specialU) + 'x' > context U+0bcd
+
+ c tamil numbers (Press any alt key and number)
+
+ + [Alt K_1] >  U+0BE7
+ + [Alt K_2] >  U+0BE8
+ + [Alt K_3] >  U+0BE9
+ + [Alt K_4] >  U+0BEA
+ + [Alt K_5] >  U+0BEB
+ + [Alt K_6] >  U+0BEC
+ + [Alt K_7] >  U+0BED
+ + [Alt K_8] >  U+0BEE
+ + [Alt K_9] >  U+0BEF
+
+C end of Tamil Keyboard
